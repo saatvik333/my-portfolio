@@ -2,9 +2,9 @@
 
 // Breakpoint constants (in pixels)
 export const BREAKPOINTS = {
-  MOBILE: 480,
-  TABLET: 768,
-  DESKTOP: 1024,
+  MOBILE: 768,
+  TABLET: 1024,
+  DESKTOP: 1280,
 } as const;
 
 // Type for different screen sizes

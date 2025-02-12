@@ -1,52 +1,80 @@
-interface ProjectCardProps {
-  title: string;
-  description: string;
-  technologies: string[];
-  link: string;
-  image?: string;
-}
+'use client';
+import { useState } from 'react';
+import { motion } from 'framer-motion';
+import Image from 'next/image'; // Using Next.js Image component instead
+import ProjectModal from './ProjectModal';
+import { Project } from '@/types';
 
-export default function ProjectCard({
-  title,
-  description,
-  technologies,
-  link,
-  image,
-}: ProjectCardProps) {
+export default function ProjectCard(props: Project) {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const { title, description, technologies, image } = props;
+
   return (
-    <div className="bg-header-light dark:bg-header-dark rounded-lg overflow-hidden shadow-lg transition-transform duration-300 hover:scale-105">
-      {image && (
-        <div className="h-48 overflow-hidden">
-          <img src={image} alt={title} className="w-full h-full object-cover" />
-        </div>
-      )}
-
-      <div className="p-6">
-        <h3 className="text-xl font-bold mb-2 text-gray-900 dark:text-white">
-          {title}
-        </h3>
-        <p className="text-gray-600 dark:text-gray-300 mb-4">{description}</p>
-
-        <div className="flex flex-wrap gap-2 mb-4">
-          {technologies.map((tech) => (
-            <span
-              key={tech}
-              className="px-3 py-1 bg-primary-light/10 dark:bg-primary-dark/10 text-primary-light dark:text-primary-dark rounded-full text-sm"
-            >
-              {tech}
-            </span>
-          ))}
-        </div>
-
-        <a
-          href={link}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-block px-4 py-2 bg-primary-light dark:bg-primary-dark text-white rounded-md hover:opacity-90 transition-opacity duration-200"
+    <>
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        whileHover={{ scale: 1.02 }}
+        whileTap={{ scale: 0.98 }}
+        transition={{
+          type: 'spring',
+          stiffness: 260,
+          damping: 20,
+        }}
+      >
+        <div
+          className="bg-header-light dark:bg-header-dark rounded-lg overflow-hidden shadow-lg cursor-pointer"
+          onClick={() => setIsModalOpen(true)}
         >
-          View Project
-        </a>
-      </div>
-    </div>
+          {image && (
+            <div className="relative h-48 w-full overflow-hidden">
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.3 }}
+                className="relative h-full w-full"
+              >
+                <Image
+                  src={image}
+                  alt={title}
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  className="object-cover"
+                  priority
+                />
+              </motion.div>
+            </div>
+          )}
+
+          <div className="p-6">
+            <h3 className="text-xl mb-2 text-gray-900 dark:text-white">
+              {title}
+            </h3>
+            <p className="text-gray-600 dark:text-gray-300 mb-4">
+              {description}
+            </p>
+
+            <div className="flex flex-wrap gap-2 mb-4">
+              {technologies.map((tech, index) => (
+                <motion.span
+                  key={tech}
+                  initial={{ opacity: 0, x: -10 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: index * 0.1 }}
+                  className="px-3 py-1 bg-primary-light/10 dark:bg-primary-dark/10 text-primary-light dark:text-primary-dark rounded-full text-sm"
+                >
+                  {tech}
+                </motion.span>
+              ))}
+            </div>
+          </div>
+        </div>
+      </motion.div>
+
+      <ProjectModal
+        project={props}
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+      />
+    </>
   );
 }

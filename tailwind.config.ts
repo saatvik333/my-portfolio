@@ -5,27 +5,35 @@ export default {
   content: ['./src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['var(--font-poppins)', 'sans-serif'],
+      },
       colors: {
         background: {
-          light: '#ced4da',
-          dark: '#101010',
+          DEFAULT: 'var(--background)',
+          light: '#FFFFFF', // White
+          dark: '#0F0F0F', // Soft black
         },
         header: {
-          light: '#ffffff',
-          dark: '#1a1a1a',
-        },
-        text: {
-          light: '#1A202C',
-          dark: '#FFFFFF',
-        },
-        muted: {
-          light: '#4A5568', // gray-600
-          dark: '#000000', // gray-300
+          DEFAULT: 'var(--header)',
+          light: '#F5F5F5', // Light gray
+          dark: '#171717', // Elevated black
         },
         primary: {
-          light: '#38B2AC', // Teal
-          dark: '#ED64A6', // Pink
-        }
+          DEFAULT: 'var(--primary)',
+          light: '#3B82F6', // Blue
+          dark: '#14B8A6', // Teal
+        },
+        text: {
+          DEFAULT: 'var(--text)',
+          light: '#1A1A1A', // Near black
+          dark: '#FFFFFF', // White
+        },
+        body: {
+          DEFAULT: 'var(--body)',
+          light: '#4B5563', // Medium gray
+          dark: '#D1D5DB', // Light gray
+        },
       },
     },
   },

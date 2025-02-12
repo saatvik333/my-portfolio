@@ -2,20 +2,35 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ced4da;
-  --foreground: #e0e4e7;
-}
+@layer base {
+  :root {
+    --background: theme('colors.background.light');
+    --header: theme('colors.header.light');
+    --primary: theme('colors.primary.light');
+    --text: theme('colors.text.light');
+    --body: theme('colors.body.light');
+  }
 
-:root.dark {
-  --background: #101010;
-  --foreground: #1e1e1e;
-}
+  :root.dark {
+    --background: theme('colors.background.dark');
+    --header: theme('colors.header.dark');
+    --primary: theme('colors.primary.dark');
+    --text: theme('colors.text.dark');
+    --body: theme('colors.body.dark');
+  }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  body {
+    @apply bg-background text-body font-sans transition-colors duration-200;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply text-text;
+  }
 }
 
 /* Hide scrollbar for Chrome, Safari and Opera */
