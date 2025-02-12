@@ -2,7 +2,7 @@
 
 import { motion, AnimatePresence } from 'framer-motion';
 import { Project } from '@/types';
-import LazyImage from './LazyImage';
+import LazyImage from '../LazyImage';
 import { useEffect, useRef, useCallback, useState } from 'react';
 
 interface ProjectModalProps {
@@ -256,33 +256,33 @@ export default function ProjectModal({
                   className="space-y-6"
                 >
                   <div className="prose dark:prose-invert max-w-none">
-                <p className="text-gray-600 dark:text-gray-300">
-                  {project.longDescription || project.description}
-                </p>
-              </div>
+                    <p className="text-gray-600 dark:text-gray-300">
+                      {project.longDescription || project.description}
+                    </p>
+                  </div>
 
                   <div className="flex flex-wrap gap-2">
                     {project.technologies.map((tech, index) => (
                       <motion.span
-                    key={tech}
+                        key={tech}
                         initial={{ opacity: 0, scale: 0.8 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ delay: 0.1 + index * 0.05 }}
                         className="px-3 py-1 bg-primary-light/10 dark:bg-primary-dark/10
                                  text-primary-light dark:text-primary-dark rounded-full text-sm"
-                  >
-                    {tech}
+                      >
+                        {tech}
                       </motion.span>
-                ))}
-              </div>
+                    ))}
+                  </div>
 
-              {project.features && (
+                  {project.features && (
                     <div>
-                  <h3 className="text-xl font-semibold mb-3 text-gray-900 dark:text-white">
-                    Key Features
-                  </h3>
+                      <h3 className="text-xl font-semibold mb-3 text-gray-900 dark:text-white">
+                        Key Features
+                      </h3>
                       <ul className="space-y-2 text-gray-600 dark:text-gray-300">
-                    {project.features.map((feature, index) => (
+                        {project.features.map((feature, index) => (
                           <motion.li
                             key={index}
                             initial={{ opacity: 0, x: -20 }}
@@ -293,10 +293,10 @@ export default function ProjectModal({
                             <span className="w-1.5 h-1.5 rounded-full bg-primary-light dark:bg-primary-dark" />
                             <span>{feature}</span>
                           </motion.li>
-                    ))}
-                  </ul>
-                </div>
-              )}
+                        ))}
+                      </ul>
+                    </div>
+                  )}
                 </motion.div>
               </div>
             </div>
@@ -309,10 +309,10 @@ export default function ProjectModal({
                 transition={{ delay: 0.3 }}
                 className="flex justify-end"
               >
-                  <a
-                    href={project.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                <a
+                  href={project.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center px-6 py-2.5 bg-primary-light dark:bg-primary-dark
                            text-white rounded-xl hover:opacity-90 transition-all duration-200
                            transform hover:scale-105 active:scale-95 shadow-md"

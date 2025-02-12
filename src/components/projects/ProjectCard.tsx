@@ -1,9 +1,9 @@
 'use client';
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import Image from 'next/image'; // Using Next.js Image component instead
 import ProjectModal from './ProjectModal';
 import { Project } from '@/types';
+import LazyImage from '../LazyImage';
 
 export default function ProjectCard(props: Project) {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -33,13 +33,11 @@ export default function ProjectCard(props: Project) {
                 transition={{ duration: 0.3 }}
                 className="relative h-full w-full"
               >
-                <Image
+                <LazyImage
                   src={image}
                   alt={title}
-                  fill
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   className="object-cover"
-                  priority
+                  priority={false}
                 />
               </motion.div>
             </div>
