@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import ProjectModal from './ProjectModal';
 import { Project } from '@/types';
-import LazyImage from '../LazyImage';
+import LazyImage from '@/components/LazyImage';
 
 export default function ProjectCard(props: Project) {
   const [isModalOpen, setIsModalOpen] = useState(false);

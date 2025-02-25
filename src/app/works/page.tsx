@@ -1,7 +1,7 @@
 'use client';
 
 import { projects } from '@/app/works/projects';
-import ProjectsGrid from '@/components/projects/ProjectsGrid';
+import ProjectsGrid from '@/components/ProjectModal/ProjectsGrid';
 import AnimatedTitle from '@/components/AnimatedTitle';
 import { Suspense } from 'react';
 import LoadingSpinner from '@/components/LoadingSpinner';

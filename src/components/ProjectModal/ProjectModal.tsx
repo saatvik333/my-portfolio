@@ -97,7 +97,7 @@ export default function ProjectModal({
                 </h2>
                 <button
                   onClick={onClose}
-                  className="p-2 rounded-xl hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors"
+                  className="p-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors"
                   aria-label="Close modal"
                 >
                   <svg
@@ -132,7 +132,7 @@ export default function ProjectModal({
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center px-6 py-2.5 bg-primary-light dark:bg-primary-dark
-                           text-white rounded-xl hover:opacity-90 transition-all duration-200
+                           text-white rounded-lg hover:opacity-90 transition-all duration-200
                            transform hover:scale-105 active:scale-95 shadow-md"
                 >
                   View Project

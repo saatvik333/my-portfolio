@@ -11,6 +11,9 @@ const nextConfig: NextConfig = {
     optimizeCss: true,
     scrollRestoration: true,
   },
+  env: {
+    GMAIL_APP_PASSWORD: process.env.GMAIL_APP_PASSWORD,
+  },
 };
 
 export default nextConfig;

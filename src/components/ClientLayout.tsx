@@ -22,7 +22,7 @@ export default function ClientLayout({
       <AnimatePresence mode="wait" initial={false}>
         <Suspense fallback={<LoadingSpinner />}>
           <PageTransition key={pathname}>
-            <main className="max-w-4xl mx-auto px-4 pt-20">{children}</main>
+            <main className="max-w-3xl mx-auto px-4 pt-20">{children}</main>
           </PageTransition>
         </Suspense>
       </AnimatePresence>

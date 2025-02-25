@@ -8,7 +8,9 @@ const ThemeToggle = () => {
       const savedTheme = localStorage.getItem('theme');
       if (savedTheme) return savedTheme;
 
-      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      return window.matchMedia('(prefers-color-scheme: dark)').matches
+        ? 'dark'
+        : 'light';
     }
     return 'light';
   };
@@ -33,7 +35,7 @@ const ThemeToggle = () => {
   return (
     <button
       onClick={toggleTheme}
-      className="p-2 rounded transition-all duration-500 ease-in-out focus:outline-none dark:bg-primary-dark bg-primary-light text-white"
+      className="p-2 rounded-lg transition-all duration-500 ease-in-out focus:outline-none dark:bg-primary-light bg-primary-dark text-white"
       aria-label="Toggle theme"
     >
       <svg

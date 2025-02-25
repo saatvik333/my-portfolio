@@ -21,7 +21,7 @@ export default {
         },
         primary: {
           DEFAULT: 'var(--primary)',
-          light: '#3B82F6', // Blue
+          light: '#ED7F4C', // Orange
           dark: '#14B8A6', // Teal
         },
         text: {

@@ -9,7 +9,6 @@ export const projects: Project[] = [
       'A personal portfolio website showcasing my projects and skills. Features a responsive design, dark mode support, and smooth animations. Built with modern web technologies and best practices for performance and accessibility.',
     image: '/works/projects/project1.jpg',
     images: [
-      '/works/projects/project1.jpg',
       '/works/projects/project2.jpg',
       '/works/projects/project3.jpg',
     ],
@@ -29,7 +28,6 @@ export const projects: Project[] = [
       'A comprehensive e-commerce dashboard that helps store owners manage their products, orders, and customers. Includes advanced analytics, inventory management, and real-time order tracking.',
     image: '/works/projects/project2.jpg',
     images: [
-      '/works/projects/project2.jpg',
       '/works/projects/project3.jpg',
       '/works/projects/project1.jpg',
     ],
@@ -49,7 +47,6 @@ export const projects: Project[] = [
       'A modern task management application that helps teams stay organized and productive. Features real-time updates, team collaboration tools, and integration with popular services.',
     image: '/works/projects/project3.jpg',
     images: [
-      '/works/projects/project3.jpg',
       '/works/projects/project1.jpg',
       '/works/projects/project2.jpg',
     ],
@@ -69,7 +66,6 @@ export const projects: Project[] = [
       'An elegant weather application that provides detailed forecasts, radar maps, and severe weather alerts. Uses multiple weather APIs to ensure accurate data and features a clean, intuitive interface.',
     image: '/works/projects/project1.jpg',
     images: [
-      '/works/projects/project1.jpg',
       '/works/projects/project2.jpg',
       '/works/projects/project3.jpg',
     ],
@@ -89,7 +85,6 @@ export const projects: Project[] = [
       'A community-driven recipe sharing platform where users can discover, share, and save their favorite recipes. Features include step-by-step instructions, ingredient scaling, and social sharing capabilities.',
     image: '/works/projects/project2.jpg',
     images: [
-      '/works/projects/project2.jpg',
       '/works/projects/project3.jpg',
       '/works/projects/project1.jpg',
     ],
@@ -109,7 +104,6 @@ export const projects: Project[] = [
       'A community-driven recipe sharing platform where users can discover, share, and save their favorite recipes. Features include step-by-step instructions, ingredient scaling, and social sharing capabilities.',
     image: '/works/projects/project2.jpg',
     images: [
-      '/works/projects/project2.jpg',
       '/works/projects/project3.jpg',
       '/works/projects/project1.jpg',
     ],

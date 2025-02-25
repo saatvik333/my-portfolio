@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import { motion } from 'framer-motion';
 import { Project } from '@/types';
-import { ProjectCarousel } from '../Carousel/ProjectCarousel';
+import { ProjectCarousel } from '@/components/Carousel/ProjectCarousel';
 
 interface ProjectContentProps {
   project: Project;

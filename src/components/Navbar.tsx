@@ -1,9 +1,9 @@
 'use client';
 import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import ThemeToggle from '@/components/ThemeToggle';
 import { createScreenSizeListener, BREAKPOINTS } from '@/utils/screens';
 import Link from 'next/link';
-import { motion } from 'framer-motion';
 
 // Types
 interface NavLink {
@@ -20,12 +20,41 @@ interface NavLinksProps {
 const NAV_LINKS: NavLink[] = [
   { href: '/', label: 'Home' },
   { href: '/works', label: 'Works' },
-  // { href: '/blogs', label: 'Blogs' },
   { href: '/contact', label: 'Contact' },
   { href: 'https://github.com/saatvik333', label: 'GitHub' },
 ];
 
-// Components
+// Variants for the mobile menu container
+const menuVariants = {
+  closed: {
+    opacity: 0,
+    height: 0,
+    y: -10,
+    transition: {
+      when: 'afterChildren',
+      duration: 0.3,
+      ease: 'easeInOut',
+    },
+  },
+  open: {
+    opacity: 1,
+    height: 'auto',
+    y: 0,
+    transition: {
+      when: 'beforeChildren',
+      duration: 0.4,
+      ease: 'easeOut',
+      staggerChildren: 0.05,
+    },
+  },
+};
+
+// Variants for each nav item in the dropdown
+const navItemVariants = {
+  closed: { opacity: 0, y: -10 },
+  open: { opacity: 1, y: 0, transition: { duration: 0.3 } },
+};
+
 const Logo = () => (
   <h1 className="text-2xl">
     <Link href="/" className="group relative inline-block">
@@ -43,18 +72,26 @@ const Logo = () => (
 );
 
 const NavLinks = ({ onClick, isMobileView }: NavLinksProps) => (
-  <ul
+  <motion.ul
     className={`${isMobileView ? 'flex flex-col space-y-2' : 'flex space-x-3'}`}
+    initial="closed"
+    animate="open"
+    exit="closed"
+    // When in mobile view, stagger the children
+    variants={{
+      open: { transition: { staggerChildren: 0.05 } },
+      closed: {},
+    }}
   >
     {NAV_LINKS.map((link) => (
-      <li key={link.href}>
+      <motion.li key={link.href} variants={isMobileView ? navItemVariants : {}}>
         {link.href.startsWith('http') ? (
           <a
             href={link.href}
             className={`transition-colors duration-200 ${
               isMobileView
                 ? 'block px-3 py-2'
-                : 'px-3 py-2 rounded-md hover:bg-primary-light dark:hover:bg-primary-dark'
+                : 'px-3 py-2 rounded-lg hover:bg-primary-light dark:hover:bg-primary-dark'
             }`}
             onClick={onClick}
             target="_blank"
@@ -68,16 +105,16 @@ const NavLinks = ({ onClick, isMobileView }: NavLinksProps) => (
             className={`transition-colors duration-200 ${
               isMobileView
                 ? 'block px-3 py-2'
-                : 'px-3 py-2 rounded-md hover:bg-primary-light dark:hover:bg-primary-dark'
+                : 'px-3 py-2 rounded-lg hover:bg-primary-light dark:hover:bg-primary-dark'
             }`}
             onClick={onClick}
           >
             {link.label}
           </Link>
         )}
-      </li>
+      </motion.li>
     ))}
-  </ul>
+  </motion.ul>
 );
 
 const MobileMenuButton = ({
@@ -89,7 +126,7 @@ const MobileMenuButton = ({
 }) => (
   <button
     onClick={onClick}
-    className="p-2 focus:outline-none backdrop-blur-lg"
+    className="p-2 focus:outline-none"
     aria-label="Toggle mobile menu"
     aria-expanded={isOpen}
   >
@@ -128,43 +165,39 @@ export default function Navbar() {
     }
   }, [isMobileView]);
 
-  const menuVariants = {
-    closed: {
-      opacity: 0,
-      height: 0,
-      transition: {
-        duration: 0.3,
-        ease: 'easeInOut',
-      },
-    },
-    open: {
-      opacity: 1,
-      height: 'auto',
-      transition: {
-        duration: 0.3,
-        ease: 'easeInOut',
-      },
-    },
-  };
-
   return (
-    <nav className="w-full p-4 bg-header-light/60 dark:bg-header-dark/60 backdrop-blur-md text-gray-900 dark:text-white fixed top-0 z-50">
-      <div className="max-w-4xl mx-auto flex justify-between items-center">
-        <Logo />
-
-        {isMobileView ? (
-          <div className="flex items-center space-x-4">
-            <ThemeToggle />
-            <MobileMenuButton
-              isOpen={isOpen}
-              onClick={() => setIsOpen(!isOpen)}
-            />
-
+    // Unified container for a seamless blur between navbar and dropdown
+    <div className="fixed top-0 left-0 w-full z-50">
+      <div className="bg-header-light/60 dark:bg-header-dark/60 backdrop-blur-md">
+        <nav className="p-4 text-gray-900 dark:text-white">
+          <div className="max-w-3xl mx-auto flex justify-between items-center">
+            <Logo />
+            {isMobileView ? (
+              <div className="flex items-center space-x-4">
+                <ThemeToggle />
+                <MobileMenuButton
+                  isOpen={isOpen}
+                  onClick={() => setIsOpen(!isOpen)}
+                />
+              </div>
+            ) : (
+              <div className="flex items-center">
+                <div className="mr-6">
+                  <NavLinks isMobileView={isMobileView} />
+                </div>
+                <ThemeToggle />
+              </div>
+            )}
+          </div>
+        </nav>
+        <AnimatePresence>
+          {isMobileView && isOpen && (
             <motion.div
               initial="closed"
-              animate={isOpen ? 'open' : 'closed'}
+              animate="open"
+              exit="closed"
               variants={menuVariants}
-              className="absolute top-full left-[-16px] w-[calc(100%+16px)] bg-header-light dark:bg-header-dark backdrop-blur-md overflow-hidden"
+              className="overflow-hidden"
             >
               <div className="p-4">
                 <NavLinks
@@ -173,16 +206,9 @@ export default function Navbar() {
                 />
               </div>
             </motion.div>
-          </div>
-        ) : (
-          <div className="flex items-center">
-            <div className="mr-6">
-              <NavLinks isMobileView={isMobileView} />
-            </div>
-            <ThemeToggle />
-          </div>
-        )}
+          )}
+        </AnimatePresence>
       </div>
-    </nav>
+    </div>
   );
 }
