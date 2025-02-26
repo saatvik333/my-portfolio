@@ -22,7 +22,7 @@ export default function Contact() {
     setStatus({ type: null, message: '' });
 
     try {
-      const response = await fetch('/api/contact', {
+      const response = await fetch('/api', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -64,7 +64,7 @@ export default function Contact() {
   };
 
   return (
-    <div className="min-h-screen py-16">
+    <div className="min-h-[calc(100vh-30vh)]">
       <AnimatedTitle>Get in Touch</AnimatedTitle>
 
       <motion.div
@@ -193,7 +193,7 @@ export default function Contact() {
               </h3>
               <p className="text-gray-600 dark:text-gray-400 mb-6">
                 Feel free to reach out for collaborations, opportunities, or
-                just to say hello! I'll get back to you as soon as possible.
+                just to say &apos;hello&apos;! I&apos;ll get back to you as soon as possible.
               </p>
               <div className="flex space-x-4">
                 {/* LinkedIn */}

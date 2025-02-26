@@ -21,7 +21,17 @@ export async function POST(req: Request) {
       );
     }
 
-    const { name, email, message } = await req.json();
+    let body;
+    try {
+      body = await req.json();
+    } catch {
+      return NextResponse.json(
+        { error: 'Invalid JSON in request body' },
+        { status: 400 }
+      );
+    }
+
+    const { name, email, message } = body;
 
     // Basic input validation
     if (!name || !email || !message) {

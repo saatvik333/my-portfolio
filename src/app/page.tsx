@@ -5,7 +5,7 @@ import ProfileImage from '@/components/ProfileImage';
 
 export default function Home() {
   return (
-    <div className="min-h-screen py-16">
+    <div className="min-h-screen">
       <div className="flex flex-col gap-8">
         <div className="flex items-center gap-4">
           <motion.div
@@ -47,20 +47,25 @@ export default function Home() {
             About
           </h2>
           <p className="text-lg text-gray-600 dark:text-gray-400 text-justify">
-            As a computer science and engineering student, I have a strong
-            foundation in programming languages, web development technologies,
-            and Linux. I have experience in software development, participation
-            in hackathons, and have worked on projects in various domains. I am
-            always eager to learn new technologies and frameworks, I enjoy
-            collaborating with other developers to create innovative solutions.
+            I am a results-driven Software Developer with hands-on experience in
+            building scalable applications and optimizing development workflows.
+            Proficient in multiple programming languages, modern frameworks, and
+            blockchain technologies, I specialize in designing secure and
+            efficient solutions. My expertise spans software development,
+            blockchain engineering, cryptography, and fully homomorphic
+            encryption (FHE).
           </p>
           <br />
           <p className="text-lg text-gray-600 dark:text-gray-400 text-justify">
-            My projects demonstrate my technical skills, problem-solving
-            abilities, and passion for technology, and I am excited to continue
-            honing my skills in all aspects of software development.
-            Additionally, I am interested in using my skills and knowledge to
-            create technology that has a positive impact on society.
+            My work includes developing blockchain-based applications,
+            cryptographic protocols, and automation tools, contributing to
+            projects that enhance security and decentralization. I have worked
+            extensively with Go, Rust, JavaScript, and C++, leveraging
+            frameworks like Node.js, Next.js, and Gin. Additionally, I have
+            experience with DevOps automation, CI/CD pipelines, and cloud
+            infrastructure. Passionate about research and innovation, I
+            continuously explore new technologies and collaborate with teams to
+            build impactful software solutions.
           </p>
         </motion.div>
         <motion.div

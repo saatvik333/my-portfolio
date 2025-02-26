@@ -25,14 +25,18 @@ export default function LoadingSpinner({
       rotate: 360,
       transition: {
         pathLength: {
-          duration: 2,
+          duration: 1.5,
           repeat: Infinity,
-          ease: "easeInOut"
+          ease: "easeInOut",
+          repeatType: "reverse"
         },
         rotate: {
-          duration: 2,
+          duration: 1.5,
           repeat: Infinity,
           ease: "linear"
+        },
+        opacity: {
+          duration: 0.25
         }
       }
     }
@@ -52,8 +56,8 @@ export default function LoadingSpinner({
           cy="25"
           r="20"
           fill="none"
-          className="stroke-current/20"
-          strokeWidth="3"
+          className="stroke-current/10"
+          strokeWidth="2.5"
         />
         {/* Animated circle */}
         <motion.circle
@@ -62,10 +66,12 @@ export default function LoadingSpinner({
           r="20"
           fill="none"
           className="stroke-current"
-          strokeWidth="3"
+          strokeWidth="4"
           strokeLinecap="round"
           variants={circleVariants}
-          style={{ transformOrigin: 'center' }}
+          style={{
+            transformOrigin: 'center'
+          }}
         />
       </motion.svg>
     </div>

@@ -8,7 +8,7 @@ import LoadingSpinner from '@/components/LoadingSpinner';
 
 function WorksContent() {
   return (
-    <div className="min-h-screen py-16">
+    <div className="min-h-screen">
       <AnimatedTitle>My Works</AnimatedTitle>
       <ProjectsGrid projects={projects} />
     </div>

@@ -11,7 +11,7 @@ export default {
       colors: {
         background: {
           DEFAULT: 'var(--background)',
-          light: '#FFFFFF', // White
+          light: '#e8ddd1', // White
           dark: '#0F0F0F', // Soft black
         },
         header: {

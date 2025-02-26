@@ -19,7 +19,6 @@ export default function LazyImage({
 }: LazyImageProps) {
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
-  const [isReady, setIsReady] = useState(false);
 
   return (
     <div className="relative h-full w-full overflow-hidden">
@@ -33,7 +32,6 @@ export default function LazyImage({
         priority={priority}
         onLoadingComplete={() => {
           setIsLoading(false);
-          setTimeout(() => setIsReady(true), 100);
         }}
         onError={() => {
           setIsLoading(false);
