@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import { Project } from '@/types';
 
 const ProjectCard = dynamic(() => import('./ProjectCard'), {
-  ssr: false,
+  ssr: true,
 });
 
 const container = {

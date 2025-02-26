@@ -8,7 +8,7 @@ import LoadingSpinner from '@/components/LoadingSpinner';
 
 function WorksContent() {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-[calc(100vh-30vh)]">
       <AnimatedTitle>My Works</AnimatedTitle>
       <ProjectsGrid projects={projects} />
     </div>

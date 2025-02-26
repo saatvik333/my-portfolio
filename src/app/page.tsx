@@ -111,8 +111,12 @@ export default function Home() {
           <div className="space-y-2">
             {[
               {
-                year: 'Feb 2023',
-                text: 'Joined Airchains as a Blockchain Development Intern, working on decentralized solutions',
+                year: 'Dec 2024',
+                text: 'Working at Airchains as a Software Developer, building zkFHE',
+              },
+              {
+                year: 'Aug 2024',
+                text: 'Joined Airchains as a Blockchain Development Intern',
               },
               {
                 year: 'Sep 2020',

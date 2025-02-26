@@ -272,7 +272,7 @@ export default function Contact() {
                 <motion.a
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 1 }}
-                  href="https://discord.com/users/saatvik333"
+                  href="https://discord.com/users/adder_death"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="p-2 rounded-lg text-gray-600 hover:text-[#5865F2] dark:text-gray-400 dark:hover:text-[#5865F2] transition-colors duration-200 hover:bg-gray-100 dark:hover:bg-gray-800"

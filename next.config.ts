@@ -8,7 +8,7 @@ const nextConfig: NextConfig = {
   //   formats: ['image/webp'],
   // },
   experimental: {
-    optimizeCss: true,
+    optimizeCss: false,
     scrollRestoration: true,
   },
   env: {
